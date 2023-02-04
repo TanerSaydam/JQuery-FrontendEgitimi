@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+<body>
+    <h1>Hide / Show</h1>    
+    <button id="hide">Hide</button>
+    <button id="show">Show</button>
+    <button id="toggle">Toggle</button>
+    <ul>
+        <li>Menü1</li>
+        <li>Menü2</li>
+        <li>Menü3</li>
+        <li>Menü4</li>
+        <li>Menü5</li>
+    </ul>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia magni, soluta vel tenetur veritatis magnam iste quisquam dolor asperiores dolores debitis in excepturi quam, ipsam, sunt voluptate? Sit, natus reprehenderit?</p>
+    <script>
+        $("#hide").click(()=> {
+            $("ul").hide(500,()=>{
+                console.log("Ben gizleniyorum kardeş");
+            });
+        });
+
+        $("#show").click(()=>{
+            $("ul").show(500,()=>{
+                console.log("Ben görünüyorum!");
+            });
+        });
+
+        $("#toggle").on("click",()=>{
+            $("ul").toggle(500);
+        })
+    </script>
+</body>
+</html>

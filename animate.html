@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            background-color: #98bf21;
+            height: 100px;
+            width: 100px;
+            position: absolute;
+        }
+    </style>    
+</head>
+<body>
+    <h1>Animate</h1>
+    <pre>
+        <code>
+            $(selector).animate({params},speed,callback);
+        </code>
+    </pre>
+    <button>Animasyonu Başlat</button>
+    <br>
+    <br>    
+    <div>Merhaba</div>
+
+
+    <script src="./jquery.js"></script>
+    <script>
+        $(document).ready(()=>{
+            $("button").on("click",()=>{
+                $("div").animate({
+                    left:"250px",                    
+                    height: "150px",
+                    width: "150px"
+                },2000);
+
+                $("div").animate({
+                    fontSize: '3em'
+                },2000);
+            });            
+        });
+    </script>
+</body>
+</html>

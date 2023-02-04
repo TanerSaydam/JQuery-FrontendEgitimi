@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+        div{
+            width: 80px;
+            height: 80px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fade</h1>
+    <ul>
+        <li>fadeIn()</li>
+        <li>fadeOut()</li>
+        <li>fadeToggle()</li>
+        <li>fadeTo()</li>
+    </ul>
+    <hr>
+    <h2>Fade In</h2>    
+    <button id="fadeInBtn">Click to fade in boxes</button>
+    <div id="fadeDiv1" style="background-color: red;"></div>
+    <div id="fadeDiv2" style="background-color: green;"></div>
+    <div id="fadeDiv3" style="background-color: blue;"></div>
+    <script>
+        // setInterval(()=>{
+        //     $("#fadeInDiv1").css("display","none");
+        //     $("#fadeInDiv2").css("display","none");
+        //     $("#fadeInDiv3").css("display","none");
+        // },7000);
+        $(document).ready(()=>{            
+            $("#fadeInBtn").on("click",()=>{
+                $("#fadeDiv1").fadeIn();
+                $("#fadeDiv2").fadeIn("slow");
+                $("#fadeDiv3").fadeIn(5000);
+            });
+        });
+    </script>
+
+    <hr>
+    <h2>Fade Out</h2>
+    <button id="fadeOutBtn">Click to fadeOut</button>
+    <script>
+        $(document).ready(()=>{
+            $("#fadeOutBtn").click(()=>{
+                $("#fadeDiv1").fadeOut();
+                $("#fadeDiv2").fadeOut("slow");
+                $("#fadeDiv3").fadeOut(4000);
+            })
+        });
+    </script>,
+    <hr>
+    <h2>Fade Toggle</h2>
+    <button id="fadeToggleBtn">Click to fadeToggle</button>
+    <script>
+        $(document).ready(function(){
+           $("#fadeToggleBtn").click(function(){
+                $("#fadeDiv1").fadeToggle();
+                $("#fadeDiv2").fadeToggle("slow");
+                $("#fadeDiv3").fadeToggle("3000");
+           });
+        });
+    </script>
+    <hr>
+    <h2>Fade To</h2>
+    <button id="fadeToBtn">Click to fadeTo</button>
+    <script>
+        $(document).ready(()=>{
+            $("#fadeToBtn").on("click",function(){
+                $("#fadeDiv1").fadeTo("slow",0.15);
+                $("#fadeDiv2").fadeTo("slow",0.4);
+                $("#fadeDiv3").fadeTo("slow",0.7);
+            });
+        });
+    </script>
+</body>
+</html>

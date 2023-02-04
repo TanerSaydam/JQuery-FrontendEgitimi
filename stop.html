@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+        #flip, #panel{
+            padding: 5px;
+            font-size: 18px;
+            text-align: center;
+            background-color: #555;
+            color: white;
+            border: 1px solid #666;
+            border-radius: 5px;
+        }
+
+        #flip{
+            cursor: pointer;
+        }
+
+        #panel{
+            padding: 50px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stop</h1>
+    <br>
+    <br>
+    <button id="stop">Stop sliding</button>
+    <div id="flip">Beni tıkla</div>
+    <div id="panel">Lorem ipsum dolor sit.</div>
+
+    <script>
+        $(document).ready(()=>{
+            $("#flip").click(()=>{
+                $("#panel").slideDown(7000);
+            });
+
+            $("#stop").on("click",()=>{
+                $("#panel").stop();
+            });
+        })
+    </script>
+</body>
+</html>

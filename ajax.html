@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+        table,th,td,tr{
+            border: 1px solid;
+            text-align: center;
+        }
+
+        table{
+            margin-top: 10px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>AJAX</h1>
+    WebApi // RestfulApi
+    <br>
+    <div>
+        Title
+        <input type="text" id="title">
+        <button id="save">Kaydet</button>
+    </div>
+    <br>
+    <button id="get">Api İsteği Yap</button>
+    <table>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Açıklama</th>
+                <th>Tamamlandı mı</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <script>
+        $(document).ready(()=>{
+            $("#get").on("click",()=>{
+                getTodoList();
+            })
+            
+            function getTodoList(){
+
+                $("tbody").remove();
+                let text = "<tbody></tbody>";
+                $("table").append(text);
+
+
+                $.ajax({
+                    url: 'http://localhost:3000/todos',
+                    success: (res)=>{                         
+                        let text = "";
+                        for (let i = 0; i < res.length; i++) {
+                            text += "<tr>";
+                            text += `<td>${i+1}</td>`;
+                            text += `<td>${res[i]["title"]}</td>`;
+
+                            let resulText = "";
+
+                            let result = res[i]["completed"]
+                            if(result){
+                                resulText = "<td style='background-color:green; color:white'>Tamamlandı</td>"
+                            }else{
+                                resulText = "<td style='background-color:red; color:white'>Tamamlanmadı!</td>"
+                            }
+                            text += resulText;
+                            text += "</tr>";
+                        }
+                        $("tbody").append(text);
+                    },
+                    error: (err)=>{
+                        console.log(err);
+                    }
+                })
+            }
+
+            $("#save").click(()=>{
+                let title = $("#title").val();
+                let data = {"title": title, "completed": false};
+
+                $.ajax({
+                    url: 'http://localhost:3000/todos',
+                    method: 'POST',
+                    data: data,
+                    success: ()=>{                        
+                      alert("Kayıt başarılı!");
+                    }
+                })
+            })
+
+        });
+
+        function setCompleted(completed){            
+            if(completed){
+                return "Tamamlandı";
+            }
+
+            return "Tamamlanmadı!";          
+        }
+    </script>
+</body>
+</html>
