@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script
+  src="https://code.jquery.com/jquery-3.6.3.js"
+  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>Selectors</h1>
+    <ul>
+        <li>Element Selector
+        <span>$("p")</span>
+        <p>Lorem ipsum dolor sit.</p>
+        <button>P elementini gizle</button>
+        <script>
+            // $(document).ready(function(){
+            //     $("button").click(function(){
+            //         $("p").hide();
+            //     })
+            // })
+        </script>
+        </li>
+        <li>
+            #id Selector
+            <span>$("#id")</span>
+            <p id="pElement">Lorem ipsum dolor sit.</p>
+            <button id="buttonElement">P elementini gizle</button>
+            <script>
+                $("#buttonElement").click(function(){
+                    $("#pElement").hide();
+                });
+            </script>
+        </li>
+        <li>
+            .class Selector
+            <span>$(".class")</span>
+            <p class="test">Lorem, ipsum dolor.</p>
+            <button class="testButton">P Elementini kaldır</button>
+            <script>
+                $(".testButton").click(function(){                    
+                    $(".test").hide();
+                });
+            </script>
+        </li>
+    </ul>    
+
+    <hr>
+    <ul>
+        <li>$("*") => Tüm elementleri seçer</li>
+        <li>$(this) => Mevcut elementi seçer</li>
+        <li>$("p.intro") => Mevcut elementler arasında yazılan class'a sahip elementi seçer</li>
+        <li>$("p:first") => ilk P elementini seçer</li>
+        <li>$("ul li:first") => Ul elementinin içindeki ilk li elementini seçer</li>
+        <li>$("a[target='_blank'] => A elementleri arasında Target attribute _blank olan elementi bulur.</li>
+        <li>$("[href]") => elementler arasında href attribute olanları seçer</li>
+    </ul>
+
+    
+</body>
+</html>
