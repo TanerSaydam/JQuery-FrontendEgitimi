@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+        table{
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th,tr,td{
+            border: 1px solid;
+        }   
+    </style>
+</head>
+<body>
+    <h1>JQuery Events</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Mouse Events</th>
+                <th>Keyboard Events</th>
+                <th>Form Events</th>
+                <th>Document/Windows Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>click</td>
+                <td>keypress</td>
+                <td>submit</td>
+                <td>load</td>
+            </tr>
+            <tr>
+                <td>dblclik</td>
+                <td>keydown</td>
+                <td>change</td>
+                <td>resize</td>
+            </tr>
+            <tr>
+                <td>mouseenter</td>
+                <td>keyup</td>
+                <td>focus</td>
+                <td>scroll</td>
+            </tr>
+            <tr>
+                <td>mouseleave</td>
+                <td></td>
+                <td>blur</td>
+                <td>unload</td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h2>Click Event</h2>
+    <pre>
+        <code>
+            $("#clickP").click(function() {
+                //işlemler
+            });
+        </code>
+    </pre>
+    <p id="clickP">Lorem ipsum dolor sit.</p>
+    <script>
+        $(document).ready(function(){
+            $("#clickP").click(function(){
+            console.log($(this).text());
+            });
+        });        
+    </script>
+    <hr>
+    <h2>Double Click Event</h2>
+    <pre>
+        <code>
+            $("#dlbclickP").dlbclick(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    <p id="dblclickP">Lorem ipsum dolor sit.</p>
+    <script>
+        $(document).ready(function(){
+            $("#dblclickP").dblclick(function(){                   
+            $(this).text("Elementin değeri değiştirildi!");
+            });
+        });        
+    </script>
+    <hr>
+    <h2>Mouse Enter Event</h2>
+    <pre>
+        <code>
+            $("#mouseenterP").mouseenter(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    <p id="mouseP">Lorem ipsum dolor sit.</p>
+    <script>
+        $("#mouseP").mouseenter(function(){
+            $(this).css("background-color","red")
+        });
+    </script>    
+    <hr>
+    <h2>Mouse Leave Event</h2>
+    <pre>
+        <code>
+            $("#mouseenterP").mouseleave(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    <script>
+        $("#mouseP").mouseleave(function(){
+            $(this).css("background-color","yellow");
+        });
+    </script>
+    <hr>
+    <h2>Hover</h2>
+    <pre>
+        <code>
+            $("mouseP").hover(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    <script>
+        $("#mouseP").hover(function(){
+            console.log("Elementin üzerindesin!");
+        });
+    </script>
+    <hr>
+    <h2>Keypress</h2>
+    <pre>
+        <code>
+            $("#input1").keypress(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    KeyPress Input
+    <input type="text" id="input1">
+    <script>
+        $("#input1").keypress(function(){
+            console.log($(this).val());
+        });
+    </script>
+    <hr>
+    <h2>Keydown</h2>
+    <pre>
+        <code>
+            $("#inpu2").keydown(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    KeyDown Input
+    <input type="text" id="input2">
+    <script>
+        $("#input2").keydown(function(){
+            console.log($(this).val());
+        });
+    </script>
+    <hr>
+    <h2>Keyup</h2>
+    <pre>
+        <code>
+            $("#input3").keyup(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    Key Up Input
+    <input type="text" id="input3">
+    <script>
+        $("#input3").keyup(function(){
+            console.log($(this).val());
+        });
+    </script>
+    <hr>
+    <h2>On Metodu</h2>
+    <pre>
+        <code>
+            $("#button").on("click", function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    <button id="button">Beni tıkla</button>
+    <script>
+        $("#button").on("click",function(){
+            console.log("Beni tıkladın kardeş!");
+        });
+    </script>
+    <hr>
+    <h2>Focus</h2>
+    <pre>
+        <code>
+            $("#focus").focus(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    <input type="text" id="focus">
+    <input type="text" id="focus">
+    <input type="text" id="focus">
+    <input type="text" id="focus">
+    <input type="text" id="focus">
+    <input type="text" id="focus">
+    <input type="text" id="focus">
+    <input type="text" id="focus">
+    <input type="text" id="focus">
+    <script>
+        $("input").focus(function(){
+            $(this).css("background-color","red");
+            $(this).css("color","white");
+            console.log("Focus oldun!")
+        });
+    </script>
+    <h2>Blur</h2>
+    <pre>
+        <code>
+            $("#focus").blur(function(){
+                //işlemler
+            });
+        </code>
+    </pre>
+    <script>
+        $("input").blur(function(){
+            $(this).css("background-color","black");
+        })
+    </script>
+
+    <div style="margin-bottom: 2000px;"></div>
+</body>
+</html>
